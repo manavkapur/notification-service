@@ -5,12 +5,13 @@ spring:
   application:
     name: notification-service
 
-  data:
-    redis:
-      host: ${SPRING_REDIS_HOST:localhost}
-      port: ${SPRING_REDIS_PORT:6379}
-      password: ${SPRING_REDIS_PASSWORD:}
-      ssl: ${SPRING_REDIS_SSL:true}
+  # Redis properties must be under spring.redis
+  redis:
+    host: ${SPRING_REDIS_HOST:localhost}
+    port: ${SPRING_REDIS_PORT:6379}
+    password: ${SPRING_REDIS_PASSWORD:}
+    ssl:
+      enabled: ${SPRING_REDIS_SSL:true}
 
 # ---------- EUREKA ----------
 eureka:
