@@ -6,13 +6,17 @@ spring:
     name: notification-service
 
   # canonical single redis URL (prefer this)
+  data:
+    redis: # ✅ Correct prefix for Spring Boot 3.x+
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
+      password: ${SPRING_REDIS_PASSWORD:}
+      ssl:
+        enabled: ${SPRING_REDIS_SSL_ENABLED:true}
+
+  # Optional: fallback for older libraries using spring.redis.*
   redis:
     url: ${REDIS_URL:}
-    host: ${SPRING_REDIS_HOST:localhost}
-    port: ${SPRING_REDIS_PORT:6379}
-    password: ${SPRING_REDIS_PASSWORD:}
-    ssl:
-      enabled: ${SPRING_REDIS_SSL:true}
 
 # ---------- EUREKA ----------
 eureka:
