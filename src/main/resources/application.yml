@@ -5,8 +5,9 @@ spring:
   application:
     name: notification-service
 
-  # Redis properties must be under spring.redis
+  # canonical single redis URL (prefer this)
   redis:
+    url: ${REDIS_URL:}
     host: ${SPRING_REDIS_HOST:localhost}
     port: ${SPRING_REDIS_PORT:6379}
     password: ${SPRING_REDIS_PASSWORD:}
