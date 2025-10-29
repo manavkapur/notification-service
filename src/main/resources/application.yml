@@ -1,3 +1,6 @@
+server:
+  port: ${PORT:8085} # Render injects PORT env var
+
 spring:
   application:
     name: notification-service
@@ -8,19 +11,22 @@ spring:
       port: ${SPRING_REDIS_PORT:6379}
       password: ${SPRING_REDIS_PASSWORD:}
       ssl:
-        enabled: ${SPRING_REDIS_SSL:true}
+        enabled: ${SPRING_REDIS_SSL_ENABLED:false}
 
-server:
-  port: 8085
-
+# ---------- EUREKA ----------
 eureka:
   client:
+    fetch-registry: true
+    register-with-eureka: true
     service-url:
-      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URL:https://eureka-server-sk4j.onrender.com/eureka/}
   instance:
-    hostname: ${EUREKA_HOSTNAME:localhost}
-    prefer-ip-address: false
-    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+    hostname: ${spring.application.name}
+    instance-id: ${spring.application.name}:${random.value}
+    metadata-map:
+      management.port: ${server.port}
 
+# ---------- JWT ----------
 jwt:
   secret: ${JWT_SECRET_KEY:supreme-solutions-secret-key-9876543210@#jwt}
