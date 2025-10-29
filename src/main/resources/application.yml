@@ -5,13 +5,13 @@ spring:
   application:
     name: notification-service
 
-  data:
     redis:
-      host: ${SPRING_REDIS_HOST:funny-monkey-29399.upstash.io}
-      port: ${SPRING_REDIS_PORT:6380}
-      password: ${SPRING_REDIS_PASSWORD:your_upstash_password}
+      host: ${SPRING_REDIS_HOST}
+      port: ${SPRING_REDIS_PORT}
+      password: ${SPRING_REDIS_PASSWORD}
       ssl:
-        enabled: true
+        enabled: ${SPRING_REDIS_SSL_ENABLED:true}
+      timeout: 3000ms
 
 # ---------- EUREKA ----------
 eureka:
