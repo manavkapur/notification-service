@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:8085} # Render injects PORT env var
+  port: ${PORT:8085}
 
 spring:
   application:
@@ -7,11 +7,11 @@ spring:
 
   data:
     redis:
-      host: ${SPRING_REDIS_HOST:localhost}
-      port: ${SPRING_REDIS_PORT:6379}
-      password: ${SPRING_REDIS_PASSWORD:}
+      host: ${SPRING_REDIS_HOST:funny-monkey-29399.upstash.io}
+      port: ${SPRING_REDIS_PORT:6380}
+      password: ${SPRING_REDIS_PASSWORD:your_upstash_password}
       ssl:
-        enabled: ${SPRING_REDIS_SSL_ENABLED:false}
+        enabled: true
 
 # ---------- EUREKA ----------
 eureka:
@@ -27,6 +27,5 @@ eureka:
     metadata-map:
       management.port: ${server.port}
 
-# ---------- JWT ----------
 jwt:
   secret: ${JWT_SECRET_KEY:supreme-solutions-secret-key-9876543210@#jwt}
