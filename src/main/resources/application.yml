@@ -24,7 +24,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: ${EUREKA_URL:https://eureka-server-sk4j.onrender.com/eureka/}
+      defaultZone: ${EUREKA_URL:https://eureka-server-142422750329.asia-southeast1.run.app/eureka/}
   instance:
     prefer-ip-address: true
     hostname: ${spring.application.name}
